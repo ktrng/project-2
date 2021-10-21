@@ -21,11 +21,30 @@ manga.get('/:id/edit', (req, res) => {
   })
 })
 
+
 ////////////////
 // UPDATE
 ////////////////
 manga.put('/:id', (req, res) => {
   Manga.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedManga) => {
+    res.redirect('/readr')
+  })
+})
+
+////////////////
+// NEW
+////////////////
+manga.get('/new', (req, res) => {
+  res.render(
+    'readr/new.ejs'
+  )
+})
+
+////////////////
+// CREATE
+////////////////
+manga.post('/', (req, res) => {
+  Manga.create(req.body, (error, addedManga) => {
     res.redirect('/readr')
   })
 })
@@ -48,9 +67,9 @@ manga.get('/', (req, res) => {
 ////////////////
 // SEED
 ////////////////
-manga.get('/readr/seed', () => {
+manga.get('/seed', () => {
   Manga.create(mangaSeed, (error, seeds) => {
-    res.redirect('/readr')
+    res.redirect('/')
   })
 })
 
