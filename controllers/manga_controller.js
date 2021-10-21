@@ -45,6 +45,14 @@ manga.get('/', (req, res) => {
   })
 })
 
+////////////////
+// SEED
+////////////////
+manga.get('/readr/seed', () => {
+  Manga.create(mangaSeed, (error, seeds) => {
+    res.redirect('/readr')
+  })
+})
 
 ///////////////////////////////////
 ///// EXPORT
