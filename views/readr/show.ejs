@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include ('../partials/nav.ejs') %>
+    <h2><%= manga.title %></h2>
+    <img src="<%= manga.img %>" alt="<%= manga.title %> Cover">
+    Description: <br/>
+      <%= manga.description %><br/><br/>
+    <a href="<%= manga.infoLink %>">Info</a><br/><br/>
+    <a href="<%= manga.buyLink %>">Buy</a><br/><br/>
+    <a href="/readr/<%= manga.id %>/edit">Edit</a>
+  </body>
+</html>

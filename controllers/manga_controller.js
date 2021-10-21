@@ -73,6 +73,21 @@ manga.get('/seed', () => {
   })
 })
 
+////////////////
+// SHOW
+////////////////
+manga.get('/:id', (req, res) => {
+  Manga.findById(req.params.id, (error, thisManga) => {
+    res.render(
+      'readr/show.ejs',
+      {
+        manga: thisManga,
+        id: req.params.id
+      }
+    )
+  })
+})
+
 ///////////////////////////////////
 ///// EXPORT
 ///////////////////////////////////
