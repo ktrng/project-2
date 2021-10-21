@@ -1,5 +1,5 @@
 const express = require('express')
-const Manga = require('../models/product.js')
+const Manga = require('../models/manga.js')
 const mangaSeed = require('../models/mangaSeed.js')
 const manga = express.Router()
 
@@ -21,4 +21,32 @@ manga.get('/:id/edit', (req, res) => {
   })
 })
 
+////////////////
+// UPDATE
+////////////////
+manga.put('/:id', (req, res) => {
+  Manga.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, updatedManga) => {
+    res.redirect('/readr')
+  })
+})
+
+////////////////
+// INDEX
+////////////////
+manga.get('/', (req, res) => {
+  Manga.find({}, (error, allManga) => {
+    res.render(
+      'readr/index.ejs',
+      {
+        mangas: allManga,
+        id: req.params.id,
+      }
+    )
+  })
+})
+
+
+///////////////////////////////////
+///// EXPORT
+///////////////////////////////////
 module.exports = manga

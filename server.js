@@ -47,6 +47,9 @@ app.use(methodOverride('_method'))// allow POST, PUT and DELETE from a form
 ///////////////////////////////////
 ///// CONTROLLERS
 ///////////////////////////////////
+const mangaController = require('./controllers/manga_controller.js')
+
+app.use('/readr', mangaController)
 
 
 //___________________
@@ -54,7 +57,7 @@ app.use(methodOverride('_method'))// allow POST, PUT and DELETE from a form
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-  res.send('Hello World!')
+  res.redirect('/readr')
 })
 
 //___________________

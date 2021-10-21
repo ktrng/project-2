@@ -7,7 +7,7 @@ const mangaSchema = new Schema(
     description: {type: String, required: true},
     img: String,
     infoLink: String,
-    buyLlink: String,
+    buyLink: String,
   }
 )
 
