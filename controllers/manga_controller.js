@@ -34,6 +34,15 @@ manga.put('/:id', (req, res) => {
 ////////////////
 // NEW
 ////////////////
+manga.delete('/:id', (req, res) => {
+  Manga.findByIdAndRemove(req.params.id, (error, data) => {
+    res.redirect('/readr')
+  })
+})
+
+////////////////
+// NEW
+////////////////
 manga.get('/new', (req, res) => {
   res.render(
     'readr/new.ejs'
