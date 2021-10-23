@@ -7,6 +7,7 @@ const mongoose = require ('mongoose')
 const app = express ()
 const db = mongoose.connection
 require('dotenv').config()
+const session = require('express-session')
 //___________________
 //Port
 //___________________
@@ -48,9 +49,12 @@ app.use(methodOverride('_method'))// allow POST, PUT and DELETE from a form
 ///// CONTROLLERS
 ///////////////////////////////////
 const mangaController = require('./controllers/manga_controller.js')
+const userController = require('./controllers/users_controller.js')
+const sessionsController = require('./controllers/sessions_controller.js')
 
 app.use('/readr', mangaController)
-
+app.use('/users', userController)
+app.use('/sessions', sessionsController)
 
 //___________________
 // Routes

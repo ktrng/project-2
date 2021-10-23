@@ -2,10 +2,20 @@ const express = require('express')
 const Manga = require('../models/manga.js')
 const mangaSeed = require('../models/mangaSeed.js')
 const manga = express.Router()
+const Comment = require('../models/comment.js')
 
 ///////////////////////////////////
 ///// ROUTES
 ///////////////////////////////////
+
+/////////////////////////
+// CREATE - COMMENT
+/////////////////////////
+manga.post('/:id', (req, res) => {
+  Comment.create(req.body, (error, addedComment) => {
+    res.redirect('/readr/:id')
+  })
+})
 
 ////////////////
 // EDIT
@@ -32,7 +42,7 @@ manga.put('/:id', (req, res) => {
 })
 
 ////////////////
-// NEW
+// DELETE
 ////////////////
 manga.delete('/:id', (req, res) => {
   Manga.findByIdAndRemove(req.params.id, (error, data) => {
