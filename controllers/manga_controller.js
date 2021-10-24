@@ -12,8 +12,13 @@ const Comment = require('../models/comment.js')
 // CREATE - COMMENT
 /////////////////////////
 manga.post('/:id', (req, res) => {
-  Comment.create(req.body, (error, addedComment) => {
-    res.redirect('/readr/:id')
+  Manga.findById(req.body.id, (error, foundManga) => {
+    Comment.create(req.body, (err, newComment) => {
+      foundManga.comments.push(newComment)
+      foundManga.save((error, data) => {
+        res.redirect(`/readr/${req.params.id}`)
+      })
+    })
   })
 })
 
@@ -97,13 +102,16 @@ manga.get('/seed', () => {
 ////////////////
 manga.get('/:id', (req, res) => {
   Manga.findById(req.params.id, (error, thisManga) => {
-    res.render(
-      'readr/show.ejs',
-      {
-        manga: thisManga,
-        id: req.params.id
-      }
-    )
+    Manga.find({thisManga.comments}, (error, mangaComments) => {
+      res.render(
+        'readr/show.ejs',
+        {
+          manga: thisManga,
+          comments: mangaComments,
+          id: req.params.id
+        }
+      )
+    })
   })
 })
 

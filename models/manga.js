@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Comment = require('./comment.js')
+
 
 const mangaSchema = new Schema(
   {
@@ -8,8 +10,10 @@ const mangaSchema = new Schema(
     img: String,
     infoLink: String,
     buyLink: String,
+    comments: [Comment.schema]
   }
 )
+
 
 const Manga = mongoose.model('Manga', mangaSchema)
 
