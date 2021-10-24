@@ -102,16 +102,13 @@ manga.get('/seed', () => {
 ////////////////
 manga.get('/:id', (req, res) => {
   Manga.findById(req.params.id, (error, thisManga) => {
-    Manga.find({thisManga.comments}, (error, mangaComments) => {
-      res.render(
-        'readr/show.ejs',
-        {
-          manga: thisManga,
-          comments: mangaComments,
-          id: req.params.id
-        }
-      )
-    })
+    res.render(
+      'readr/show.ejs',
+      {
+        manga: thisManga,
+        id: req.params.id
+      }
+    )
   })
 })
 
