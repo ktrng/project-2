@@ -20,6 +20,7 @@ const PORT = process.env.PORT || 3003
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI
 
+const SECRET = process.env.SECRET
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
@@ -43,6 +44,15 @@ app.use(express.json())// returns middleware that only parses JSON - may or may 
 
 //use method override
 app.use(methodOverride('_method'))// allow POST, PUT and DELETE from a form
+app.use(
+  session(
+    {
+      secret: process.env.SECRET,
+      resave: false,
+      saveUninitialized: false
+    }
+  )
+)
 
 
 ///////////////////////////////////

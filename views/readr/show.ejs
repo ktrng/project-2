@@ -12,10 +12,16 @@
     <a href="<%= manga.infoLink %>">Info</a><br/><br/>
     <a href="<%= manga.buyLink %>">Buy</a><br/><br/>
     <a href="/readr/<%= manga.id %>/edit">Edit</a><br/><br/>
+    <h3>Comments</h3>
     <form class="" action="/readr/<%=id%>" method="POST">
+      Username: <input type="text" name="username"><br/><br>
       <textarea name="comment" rows="8" cols="80" placeholder="Enter comment here"></textarea><br/>
       <input type="submit" value="Comment">
     </form>
-    
+    <ul>
+    <% for (let i = 0; i < manga.comments.length; i++) { %>
+      <li><%= manga.comments[i].body %></li>
+    <% } %>
+    </ul>
   </body>
 </html>

@@ -1,8 +1,11 @@
 <nav>
   <a href="/readr"><h1>Manga Readr</h1></a>
-  <a href="/readr/new">Add Manga</a>
+  <% if (currentUser) { %>
+    <a href="/readr/new">Add Manga</a>
+    <form class="" action="/sessions?_method=DELETE" method="post">
+      <input type="submit" name="" value="Log Out">
+    </form>
+  <% } else { %>
   <a href="/users/new">Create Account</a> / <a href="/sessions/new">Log In</a>
-  <form class="" action="/sessions?_method=DELETE" method="post">
-    <input type="submit" name="" value="Log Out">
-  </form>
+  <% } %>
 </nav>

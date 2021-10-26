@@ -21,7 +21,7 @@ module.exports = [
     buyLink: 'https://www.amazon.com/One-Piece-Vol-Romance-Dawn/dp/1569319014/ref=sr_1_5?_encoding=UTF8&camp=1789&creative=9325&dchild=1&keywords=One+Piece+Manga&linkCode=ur2&linkId=8c613d92a6ba2baa881f9297649d430a&qid=1634853787&qsid=141-5291853-4480433&sr=8-5&sres=1974725960%2C1974722899%2C1421576066%2C1421536250%2C1569319014%2C159116057X%2C1421554992%2C1421554984%2C1974725197%2C1421539594%2C1974721132%2C1421555018%2C1421536269%2C142155500X%2C1421539268%2C1421536285%2C1421538512%2C1421534673%2C1591166152%2C1421541440&srpt=ABIS_BOOK'
   },
   {
-    title: 'https://myanimelist.net/manga/70345/Grand_Blue',
+    title: 'Grand Blue',
     description: `Among the seaside town of Izu's ocean waves and rays of shining sun, Iori Kitahara is just beginning his freshman year at Izu University. As he moves into his uncle's scuba diving shop, Grand Blue, he eagerly anticipates his dream college life, filled with beautiful girls and good friends. But things don't exactly go according to plan. Upon entering the shop, he encounters a group of rowdy, naked upperclassmen, who immediately coerce him into participating in their alcoholic activities. Though unwilling at first, Iori quickly gives in and becomes the heart and soul of the party. Unfortunately, this earns him the scorn of his cousin, Chisa Kotegawa, who walks in at precisely the wrong time. Undeterred, Iori still vows to realize his ideal college life, but will things go according to plan this time, or will his situation take yet another dive?`,
     img: 'https://cdn.myanimelist.net/images/manga/2/166124l.jpg',
     infoLink: 'https://myanimelist.net/manga/70345/Grand_Blue',
