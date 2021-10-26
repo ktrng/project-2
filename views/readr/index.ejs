@@ -4,21 +4,31 @@
     <%- include ('../partials/head.ejs') %>
   </head>
   <body>
-    <%- include('../partials/nav.ejs') %>
-    <h2>Top 10:</h2>
-    <ul>
-      <% for (let i = 0; i < mangas.length; i++) { %>
-        <li>
-          <a href="/readr/<%= mangas[i].id %>"><%= mangas[i].title %></a><br/><br/>
-          <a href="/readr/<%= mangas[i].id %>"><img src="<%= mangas[i].img %>" alt="<%= mangas[i].title %>"></a><br/><br/>
-          <a href="/readr/<%= mangas[i].id %>/edit">Edit</a>
-          <form action="/readr/<%= mangas[i].id %>?_method=DELETE" method="POST">
-            <input type="submit" value="Remove">
-          </form>
-          <br/><br/>
-        </li>
-      <% } %>
-    </ul>
-    <ul>
+    <div class="container">
+      <%- include('../partials/nav.ejs') %>
+      <h2>Top 10:</h2>
+      <ul class="index">
+        <% for (let i = 0; i < mangas.length; i++) { %>
+          <li class="index-list">
+            <div class="title-container">
+              <a  class="title" href="/readr/<%= mangas[i].id %>"><%= mangas[i].title %></a>
+            </div>
+            <div class="img-container">
+              <a href="/readr/<%= mangas[i].id %>"><img class="index-img" src="<%= mangas[i].img %>" alt="<%= mangas[i].title %>"></a>
+            </div>
+            <% if (currentUser) { %>
+            <div class="bottom-btns">
+              <a href="/readr/<%= mangas[i].id %>/edit">Edit</a>
+              <form action="/readr/<%= mangas[i].id %>?_method=DELETE" method="POST">
+                <input class="delete" type="submit" value="Remove">
+              </form>
+            </div>
+            <% } %>
+            <br/><br/>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+    <%- include ('../partials/footer.ejs') %>
   </body>
 </html>

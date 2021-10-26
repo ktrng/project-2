@@ -116,7 +116,7 @@ manga.get('/seed', () => {
 ////////////////
 // SHOW
 ////////////////
-manga.get('/:id', loggedIn, (req, res) => {
+manga.get('/:id', (req, res) => {
   Manga.findById(req.params.id, (error, thisManga) => {
     res.render(
       'readr/show.ejs',

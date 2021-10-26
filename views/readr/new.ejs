@@ -4,14 +4,18 @@
     <%- include ('../partials/head.ejs') %>
   </head>
   <body>
-    <%- include('../partials/nav.ejs') %>
-    <h2>Add Manga</h2>
-    <form action="/readr/" method="POST">
-      Title: <input type="text" name="title" placeholder="Title"><br/><br/>
-      Description: <input type="text" name="description" placeholder="Description"><br/><br/>
-      Image: <input type="text" name="img" placeholder="Image Link"><br/><br/>
-      Info Link: <input type="text" name="infoLink" placeholder="Information Link"><br/><br/>
-      Buy Link: <input type="text" name="buyLink" placeholder="Buy Link"><br/><br/>
-      <input type="submit" value="Add Manga">
+    <div class="container">
+      <%- include('../partials/nav.ejs') %>
+      <h2>Add Manga</h2>
+      <form action="/readr/" method="POST">
+        Title: <input type="text" name="title" placeholder="Title"><br/><br/>
+        Description: <input type="text" name="description" placeholder="Description"><br/><br/>
+        Image: <input type="text" name="img" placeholder="Image Link"><br/><br/>
+        Info Link: <input type="text" name="infoLink" placeholder="Information Link"><br/><br/>
+        Buy Link: <input type="text" name="buyLink" placeholder="Buy Link"><br/><br/>
+        <input type="submit" value="Add Manga">
+      </form>
+    </div>
+    <%- include ('../partials/footer.ejs') %>
   </body>
 </html>

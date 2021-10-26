@@ -3,9 +3,11 @@
   <% if (currentUser) { %>
     <a href="/readr/new">Add Manga</a>
     <form class="" action="/sessions?_method=DELETE" method="post">
-      <input type="submit" name="" value="Log Out">
+      <input class="delete" type="submit" name="" value="Log Out">
     </form>
   <% } else { %>
-  <a href="/users/new">Create Account</a> / <a href="/sessions/new">Log In</a>
+  <div class="log-in">
+    <a href="/users/new">Create Account</a> / <a href="/sessions/new">Log In</a>
+  </div>
   <% } %>
 </nav>
