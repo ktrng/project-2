@@ -23,6 +23,8 @@
           <% } %>
         </div>
       </div>
+      <div class="show-border">
+      </div>
       <div class="comment-section">
         <h3>Comments</h3>
         <% if (currentUser) { %>
@@ -34,12 +36,16 @@
             <input type="submit" value="Comment">
           </form>
         <% } %>
+
         <ul>
         <% for (let i = 0; i < manga.comments.length; i++) { %>
           <li><%= manga.comments[i].body %></li>
         <% } %>
         </ul>
+        <div class="show-border">
+        </div>
       </div>
+    </div>
     </div>
     <%- include ('../partials/footer.ejs') %>
   </body>

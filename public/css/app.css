@@ -33,7 +33,28 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 10px;
+}
+
+.nav-border {
+  width: 90%;
+  border-bottom: 1px solid black;
+  margin: auto;
+}
+
+.show-border {
+  width: 90%;
+  border-bottom: 1px solid black;
+  padding: 10px 0 20px 0;
+  margin: auto;
+}
+
+.new-border {
+  width: 90%;
+  border-bottom: 1px solid black;
+  margin: 0 auto 20px auto;
+  padding: 10px 0 10px 0;
 }
 
 .container {
@@ -76,6 +97,7 @@ h1 {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  padding-top: 10px;
 }
 
 .index-img {
@@ -89,6 +111,7 @@ h2 {
 
 .show-container {
   display: flex;
+  flex-wrap: wrap;
   padding: 20px;
 }
 
@@ -99,16 +122,19 @@ h2 {
 }
 
 .infotainer {
+  width: 400px;
   height: 650px;
   display: flex;
   flex-direction: column;
 }
 
 .description {
+  width: 100%;
   height: 650px;
 }
 
 .desc-links {
+  width: 100%;
   display: flex;
   justify-content: space-around;
 }
@@ -119,4 +145,12 @@ h2 {
 
 .comment-username {
   display: none;
+}
+
+.form {
+  padding-left: 20px;
+}
+
+footer {
+  margin: 20px auto 10px auto;
 }
