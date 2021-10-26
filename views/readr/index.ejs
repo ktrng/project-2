@@ -19,5 +19,12 @@
         </li>
       <% } %>
     </ul>
+    <h2>Your Library</h2>
+    <ul>
+    <% for (let i = 0; i < user.library; i++) { %>
+      <li>
+        <a href="/readr/<%=user.libarary[0].id%>"><%=/readr/<%=user.libarary[0].title%>%></a>
+      </li>
+    </ul>
   </body>
 </html>
