@@ -22,16 +22,16 @@ const loggedIn = (req, res, next) => {
 /////////////////////////
 // CREATE - COMMENT
 /////////////////////////
-// manga.post('/:id', (req, res) => {
-//   Manga.findById(req.body.id, (error, foundManga) => {
-//     Comment.create(req.body, (err, newComment) => {
-//       foundManga.comments.push(newComment)
-//       foundManga.save((error, data) => {
-//         res.redirect(`/readr/${req.params.id}`)
-//       })
-//     })
-//   })
-// })
+manga.post('/:id', (req, res) => {
+  Comment.create(req.body, (error, newComment) => {
+    console.log(newComment);
+    Manga.findOneAndUpdate({id: req.params.id}, {$push: {comments: newComment}}, {new: true}, (error, updatedManga) => {
+      res.redirect(
+        `/readr/${req.params.id}`
+      )
+    })
+  })
+})
 
 ////////////////
 // EDIT
@@ -107,7 +107,7 @@ manga.get('/', (req, res) => {
 ////////////////
 // SEED
 ////////////////
-manga.get('/seed', () => {
+manga.get('/seed', (req, res) => {
   Manga.create(mangaSeed, (error, seeds) => {
     res.redirect('/')
   })
@@ -118,14 +118,17 @@ manga.get('/seed', () => {
 ////////////////
 manga.get('/:id', (req, res) => {
   Manga.findById(req.params.id, (error, thisManga) => {
-    res.render(
-      'readr/show.ejs',
-      {
-        manga: thisManga,
-        id: req.params.id,
-        currentUser: req.session.currentUser
-      }
-    )
+    Comment.find({}, (error, comments) => {
+      res.render(
+        'readr/show.ejs',
+        {
+          manga: thisManga,
+          id: req.params.id,
+          currentUser: req.session.currentUser,
+          comments: comments
+        }
+      )
+    })
   })
 })
 
