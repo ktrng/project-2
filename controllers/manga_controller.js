@@ -20,7 +20,7 @@ const loggedIn = (req, res, next) => {
 }
 
 /////////////////////////
-// CREATE - COMMENT
+// CREATE - COMMENT (props to Steven in the TA office hours channel for pointing me in the right direction; https://kb.objectrocket.com/mongo-db/how-to-do-a-one-to-many-join-using-mongoose-229)
 /////////////////////////
 manga.post('/:id', (req, res) => {
   Comment.create(req.body, (error, newComment) => {

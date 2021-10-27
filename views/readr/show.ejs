@@ -39,7 +39,12 @@
 
         <ul>
         <% for (let i = 0; i < manga.comments.length; i++) { %>
-          <li><%= manga.comments[i].body %></li>
+          <li class="comment-container">
+            <span class="comment-user"><%= manga.comments[i].username %></span>:<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= manga.comments[i].body %>
+            <div class="comment-border">
+            </div>
+          </li>
         <% } %>
         </ul>
         <div class="show-border">
