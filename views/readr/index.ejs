@@ -14,13 +14,13 @@
               <a  class="title" href="/readr/<%= mangas[i].id %>"><%= mangas[i].title %></a>
             </div>
             <div class="img-container">
-              <a href="/readr/<%= mangas[i].id %>"><img class="index-img" src="<%= mangas[i].img %>" alt="<%= mangas[i].title %>"></a>
+              <a class="index-img" href="/readr/<%= mangas[i].id %>"><img class="index-img" src="<%= mangas[i].img %>" alt="<%= mangas[i].title %>"></a>
             </div>
             <% if (currentUser) { %>
             <div class="bottom-btns">
-              <a href="/readr/<%= mangas[i].id %>/edit">Edit</a>
+              <a class="button" href="/readr/<%= mangas[i].id %>/edit">Edit</a>
               <form action="/readr/<%= mangas[i].id %>?_method=DELETE" method="POST">
-                <input class="delete" type="submit" value="Remove">
+                <input class="delete d-button" type="submit" value="Remove">
               </form>
             </div>
             <div class="new-border"></div>
